@@ -14,10 +14,13 @@ HardwareSerial GPS_Serial(2);
 #define SAMPLE_SIZE 10
 
 // === WiFi & ThingSpeak Setup ===
-const char* ssid = "MTN WakaNet_C464E7";
-const char* password = "22CA7D5D";
+//replace with your WiFi credentials and ThingSpeak API key
+//replace with your wifi name and password
+//replace with your ThingSpeak API key
+const char* ssid = "MTN WakaNet_C464E7"; // Replace with your WiFi SSID
+const char* password = "22CA7D5D";// Replace with your WiFi password
 const char* thingspeakServer = "https://api.thingspeak.com/update";
-String apiKey = "L9CEGMYLU7LCS9F7";
+String apiKey = "L9CEGMYLU7LCS9F7"; //replace with your api write key
 
 int16_t z_history[SAMPLE_SIZE];
 int zIndex = 0;
