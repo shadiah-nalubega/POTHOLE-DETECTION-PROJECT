@@ -71,3 +71,17 @@ class TravelRouteMapPage extends StatelessWidget {
     );
   }
 }
+
+  final String orsApiKey =
+      'eyJvcmciOiI1YjNjZTM1OTc4NTExMTAwMDFjZjYyNDgiLCJpZCI6ImY5ZmRlMzA0MGQxOTQ5Nzg5ZmVmNDk2NjQzODI1ZmExIiwiaCI6Im11cm11cjY0In0= '; // <-- Replace with your real key
+
+  //get the api key from openrouteservice.org
+  // You can get your own API key from https://openrouteservice.org/sign-up/
+  // Make sure to replace the key below
+  // You can get your own API key from https://thingspeak.com/
+  // Make sure to replace the key below
+  final String thingSpeakUrl =
+      'https://api.thingspeak.com/channels/3004931/feeds.json?api_key=HCX3A9AOSBAKYPXG&results=100'; // <-- Replace with your channel ID and read key
+  //replace with your real channel ID AND read key
+  // You can get your own API key from https://thingspeak.com/
+  //and replace the key below

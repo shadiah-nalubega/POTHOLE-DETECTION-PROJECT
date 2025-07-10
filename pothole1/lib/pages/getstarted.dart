@@ -1,23 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-// This is the get started page for the pothole detection app.
-// It uses embedded systems to detect potholes in roads.
-// The page has a background image with a gradient overlay, a title, subtitle, and a button to get started.
-
-class Getstarted extends StatelessWidget {
-  const Getstarted({super.key});
+class GetStarted extends StatelessWidget {
+  const GetStarted({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,
         children: [
-          // Background image with fallback color if image fails to load
+          // Background Image
           Image.asset(
-            "assets/images/background.jpg",
+            "images/background.jpg",
             fit: BoxFit.cover,
-            color: Colors.black.withOpacity(0.5),
+            color: Colors.black.withOpacity(0.4),
             colorBlendMode: BlendMode.darken,
             errorBuilder: (context, error, stackTrace) => Container(
               decoration: const BoxDecoration(
@@ -29,62 +28,73 @@ class Getstarted extends StatelessWidget {
               ),
             ),
           ),
-          // Gradient overlay
+
+          // Gradient Overlay
           Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  Colors.black.withOpacity(0.5),
-                  Colors.black.withOpacity(0.5),
+                  Colors.black.withOpacity(0.6),
+                  Colors.transparent,
+                  Colors.black.withOpacity(0.7),
                 ],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
               ),
             ),
           ),
-          // Main content
-          Center(
+
+          // Content
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.warning, size: 100, color: Colors.yellow),
-                const SizedBox(height: 20),
-                const Text(
-                  'Pothole Detection',
-                  style: TextStyle(
-                    fontSize: 32,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const SizedBox(height: 10),
-                const Text(
-                  'Detect potholes in roads using embedded systems',
-                  style: TextStyle(fontSize: 16, color: Colors.white70),
-                  textAlign: TextAlign.center,
+                const Icon(
+                  Icons.construction_rounded,
+                  size: 100,
+                  color: Colors.amber,
                 ),
                 const SizedBox(height: 30),
-                ElevatedButton(
-                  onPressed: () {
-                    // Navigate to the next page or perform an action
-                    Navigator.pushNamed(context, "/home");
-                  },
-                  style: ElevatedButton.styleFrom(
-                    foregroundColor: Colors.yellow,
-                    backgroundColor: Colors.black,
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 30,
-                      vertical: 15,
-                    ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    textStyle: const TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                    ),
+                Text(
+                  'Pothole Detection',
+                  style: GoogleFonts.poppins(
+                    fontSize: 36,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.white,
                   ),
-                  child: const Text('Get Started'),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 15),
+                Text(
+                  'Using Embedded Systems to detect and report potholes in real-time for smarter roads.',
+                  style: GoogleFonts.poppins(
+                    fontSize: 16,
+                    color: Colors.white70,
+                    height: 1.5,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 50),
+                SizedBox(
+                  width: size.width * 0.7,
+                  height: 55,
+                  child: ElevatedButton(
+                    onPressed: () => Navigator.pushNamed(context, "/login"),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.amber,
+                      foregroundColor: Colors.black87,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      elevation: 6,
+                      textStyle: GoogleFonts.poppins(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    child: const Text("Get Started"),
+                  ),
                 ),
               ],
             ),
