@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
-import 'package:firebase_auth/firebase_auth.dart'; // ✅ Firebase Auth
 
+// Sign Up Page
 class SignPage extends StatefulWidget {
   const SignPage({super.key});
 
@@ -9,7 +9,8 @@ class SignPage extends StatefulWidget {
   State<SignPage> createState() => _SignPageState();
 }
 
-class _SignPageState extends State<SignPage> with SingleTickerProviderStateMixin {
+class _SignPageState extends State<SignPage>
+    with SingleTickerProviderStateMixin {
   final _formKey = GlobalKey<FormState>();
   bool _obscurePassword = true;
   bool _obscureConfirmPassword = true;
@@ -20,7 +21,8 @@ class _SignPageState extends State<SignPage> with SingleTickerProviderStateMixin
 
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _confirmPasswordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
+      TextEditingController();
 
   @override
   void initState() {
@@ -42,47 +44,6 @@ class _SignPageState extends State<SignPage> with SingleTickerProviderStateMixin
     super.dispose();
   }
 
-  void _showErrorSnackbar(String message) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(message), backgroundColor: Colors.red),
-    );
-  }
-
-  void _showSuccessSnackbar(String message) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(message), backgroundColor: Colors.green),
-    );
-  }
-
-  Future<void> _onSignUpPressed() async {
-    if (_formKey.currentState!.validate() && _agreeToTerms) {
-      try {
-        final email = _emailController.text.trim();
-        final password = _passwordController.text;
-
-        await FirebaseAuth.instance.createUserWithEmailAndPassword(
-          email: email,
-          password: password,
-        );
-
-        _showSuccessSnackbar('Account created successfully!');
-        Navigator.of(context).pushReplacementNamed('/login');
-      } on FirebaseAuthException catch (e) {
-        if (e.code == 'email-already-in-use') {
-          _showErrorSnackbar('This email is already in use.');
-        } else if (e.code == 'weak-password') {
-          _showErrorSnackbar('Password is too weak.');
-        } else {
-          _showErrorSnackbar(e.message ?? 'Sign up failed.');
-        }
-      } catch (e) {
-        _showErrorSnackbar('An unexpected error occurred.');
-      }
-    } else {
-      _showErrorSnackbar('Please complete all fields and agree to terms');
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -97,48 +58,87 @@ class _SignPageState extends State<SignPage> with SingleTickerProviderStateMixin
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const Icon(Icons.construction_rounded, size: 100, color: Colors.amber),
+                  const Icon(
+                    Icons.construction_rounded,
+                    size: 100,
+                    color: Colors.amber,
+                  ),
                   const SizedBox(height: 16),
-                  const Text('Create Account', style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
+                  const Text(
+                    'Create Account',
+                    style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+                  ),
                   const SizedBox(height: 8),
-                  const Text('Sign up to get started', style: TextStyle(fontSize: 16, color: Colors.grey)),
+                  const Text(
+                    'Sign up to get started',
+                    style: TextStyle(fontSize: 16, color: Colors.grey),
+                  ),
                   const SizedBox(height: 30),
 
+                  // Email
                   _buildTextField(
                     controller: _emailController,
                     hintText: 'Email',
                     icon: Icons.email_outlined,
                     keyboardType: TextInputType.emailAddress,
-                    validator: (val) => val != null && val.contains('@') ? null : 'Enter valid email',
+                    validator: (val) => val != null && val.contains('@')
+                        ? null
+                        : 'Enter valid email',
                   ),
                   const SizedBox(height: 20),
 
+                  // Password
                   TextFormField(
                     controller: _passwordController,
                     obscureText: _obscurePassword,
-                    validator: (val) => val != null && val.length >= 6 ? null : 'Minimum 6 characters',
-                    decoration: _inputDecoration(Icons.lock_outline, 'Password').copyWith(
-                      suffixIcon: IconButton(
-                        icon: Icon(_obscurePassword ? Icons.visibility_off : Icons.visibility),
-                        onPressed: () => setState(() => _obscurePassword = !_obscurePassword),
-                      ),
-                    ),
+                    validator: (val) => val != null && val.length >= 6
+                        ? null
+                        : 'Minimum 6 characters',
+                    decoration: _inputDecoration(Icons.lock_outline, 'Password')
+                        .copyWith(
+                          suffixIcon: IconButton(
+                            icon: Icon(
+                              _obscurePassword
+                                  ? Icons.visibility_off
+                                  : Icons.visibility,
+                            ),
+                            onPressed: () => setState(
+                              () => _obscurePassword = !_obscurePassword,
+                            ),
+                          ),
+                        ),
                   ),
                   const SizedBox(height: 20),
 
+                  // Confirm Password
                   TextFormField(
                     controller: _confirmPasswordController,
                     obscureText: _obscureConfirmPassword,
-                    validator: (val) => val != null && val == _passwordController.text ? null : 'Passwords do not match',
-                    decoration: _inputDecoration(Icons.lock_outline, 'Confirm Password').copyWith(
-                      suffixIcon: IconButton(
-                        icon: Icon(_obscureConfirmPassword ? Icons.visibility_off : Icons.visibility),
-                        onPressed: () => setState(() => _obscureConfirmPassword = !_obscureConfirmPassword),
-                      ),
-                    ),
+                    validator: (val) =>
+                        val != null && val == _passwordController.text
+                        ? null
+                        : 'Passwords do not match',
+                    decoration:
+                        _inputDecoration(
+                          Icons.lock_outline,
+                          'Confirm Password',
+                        ).copyWith(
+                          suffixIcon: IconButton(
+                            icon: Icon(
+                              _obscureConfirmPassword
+                                  ? Icons.visibility_off
+                                  : Icons.visibility,
+                            ),
+                            onPressed: () => setState(
+                              () => _obscureConfirmPassword =
+                                  !_obscureConfirmPassword,
+                            ),
+                          ),
+                        ),
                   ),
                   const SizedBox(height: 20),
 
+                  // Terms and conditions
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -156,14 +156,26 @@ class _SignPageState extends State<SignPage> with SingleTickerProviderStateMixin
                             children: [
                               TextSpan(
                                 text: 'Healthcare Terms of',
-                                style: const TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
-                                recognizer: TapGestureRecognizer()..onTap = () {},
+                                style: const TextStyle(
+                                  color: Colors.blue,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                recognizer: TapGestureRecognizer()
+                                  ..onTap = () {
+                                    // Open terms
+                                  },
                               ),
                               const TextSpan(text: ' and '),
                               TextSpan(
                                 text: 'Privacy Policy',
-                                style: const TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
-                                recognizer: TapGestureRecognizer()..onTap = () {},
+                                style: const TextStyle(
+                                  color: Colors.blue,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                recognizer: TapGestureRecognizer()
+                                  ..onTap = () {
+                                    // Open privacy policy
+                                  },
                               ),
                             ],
                           ),
@@ -173,16 +185,37 @@ class _SignPageState extends State<SignPage> with SingleTickerProviderStateMixin
                   ),
                   const SizedBox(height: 20),
 
+                  // Sign Up Button
                   ElevatedButton(
-                    onPressed: _onSignUpPressed,
+                    onPressed: () {
+                      if (_formKey.currentState!.validate() && _agreeToTerms) {
+                        // Proceed with sign-up
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text(
+                              'Please complete all fields and agree to terms',
+                            ),
+                          ),
+                        );
+                      }
+                    },
                     style: ElevatedButton.styleFrom(
                       minimumSize: const Size.fromHeight(50),
                       backgroundColor: Colors.green.shade700,
                       foregroundColor: Colors.white,
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
                       elevation: 3,
                     ),
-                    child: const Text('Sign Up', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                    child: const Text(
+                      'Sign Up',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ),
                   const SizedBox(height: 20),
 
@@ -202,12 +235,22 @@ class _SignPageState extends State<SignPage> with SingleTickerProviderStateMixin
                   RichText(
                     text: TextSpan(
                       children: [
-                        const TextSpan(text: "Already have an account? ", style: TextStyle(color: Colors.black, fontSize: 16)),
+                        const TextSpan(
+                          text: "Already have an account? ",
+                          style: TextStyle(color: Colors.black, fontSize: 16),
+                        ),
                         TextSpan(
                           text: 'Sign In',
-                          style: const TextStyle(color: Colors.blue, fontWeight: FontWeight.bold, fontSize: 16),
+                          style: const TextStyle(
+                            color: Colors.blue,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
                           recognizer: TapGestureRecognizer()
-                            ..onTap = () => Navigator.of(context).pushNamed("/login"),
+                            ..onTap = () {
+                              // must push
+                              Navigator.of(context).pushNamed("/login");
+                            },
                         ),
                       ],
                     ),
@@ -253,7 +296,7 @@ class _SignPageState extends State<SignPage> with SingleTickerProviderStateMixin
   Widget _socialButton(String iconPath, String label) {
     return ElevatedButton.icon(
       onPressed: () {
-        // Future: Implement Google/Microsoft Sign-in
+        // Handle social sign-in
       },
       icon: Image.asset(iconPath, height: 24),
       label: Text(label),

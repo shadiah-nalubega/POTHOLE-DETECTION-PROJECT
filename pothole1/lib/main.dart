@@ -33,7 +33,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-  // final String orsApiKey =
-  //     'eyJvcmciOiI1YjNjZTM1OTc4NTExMTAwMDFjZjYyNDgiLCJpZCI6ImY5ZmRlMzA0MGQxOTQ5Nzg5ZmVmNDk2NjQzODI1ZmExIiwiaCI6Im11cm11cjY0In0=';
-  // final String thingSpeakUrl =
-  //     'https://api.thingspeak.com/channels/3004931/feeds.json?api_key=HCX3A9AOSBAKYPXG&results=100';
