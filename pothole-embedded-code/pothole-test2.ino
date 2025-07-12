@@ -2,6 +2,7 @@
 #include <MPU6050.h>
 #include <HardwareSerial.h>
 #include <TinyGPSPlus.h>
+#include <WiFiManager.h>
 #include <WiFi.h>
 #include <HTTPClient.h>
 
@@ -13,17 +14,12 @@ HardwareSerial GPS_Serial(2);
 #define GPS_TX 17
 #define SAMPLE_SIZE 10
 
-// === WiFi & ThingSpeak Setup ===
-//replace with your WiFi credentials and ThingSpeak API key
-//replace with your wifi name and password
-//replace with your ThingSpeak API key
-const char* ssid = "MTN WakaNet_C464E7"; // Replace with your WiFi SSID
-const char* password = "22CA7D5D";// Replace with your WiFi password
-const char* thingspeakServer = "https://api.thingspeak.com/update";
-String apiKey = "L9CEGMYLU7LCS9F7"; //replace with your api write key
-
 int16_t z_history[SAMPLE_SIZE];
 int zIndex = 0;
+
+// === ThingSpeak Setup ===
+const char* thingspeakServer = "https://api.thingspeak.com/update";
+String apiKey = "UOPAYZP2P3Q5BDD0";
 
 // === URL Encode Function ===
 String urlEncode(const String &str) {
@@ -91,13 +87,16 @@ void setup() {
     while (true);
   }
 
-  Serial.print("Connecting to WiFi");
-  WiFi.begin(ssid, password);
-  while (WiFi.status() != WL_CONNECTED) {
-    delay(500);
-    Serial.print(".");
+  // === WiFiManager Setup ===
+  WiFiManager wm;
+  bool res = wm.autoConnect("ESP32-Road-Setup");
+
+  if (!res) {
+    Serial.println("Failed to connect. Opening config portal...");
+    wm.startConfigPortal("ESP32-Road-Setup");
   }
-  Serial.println("\n Connected to WiFi");
+
+  Serial.println("WiFi connected!");
 }
 
 void loop() {
