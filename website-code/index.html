@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Real-Time Road Condition Mapper</title>
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/frame.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/controls.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/custom.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet'>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/footer.js"></script>
+  <style>
+    .menu-index {
+      color: rgb(255, 255, 255) !important;
+      opacity: 1 !important;
+      font-weight: 700 !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="menu-container"></div>
+  <div class="content-container">
+
+    <!-- Banner Section -->
+    <div class="banner" style="background: url('img/the_pothole_road.png') no-repeat center; background-size: cover; height: 300px;"></div>
+    <div class="banner">
+      <div class="banner-table flex-column">
+        <div class="flex-row">
+          <div class="flex-item flex-column">
+            <h2 class="add-top-margin-small">Real-Time Road Condition Mapper</h2>
+            <p class="text">
+              An IoT-powered embedded system designed to detect potholes using acceleration data and GPS positioning throught a device that is mounted on Cars and Motorcycles. 
+              Logged events are uploaded to a cloud based database and visualized through a mobile app that alerts drivers to road hazards along their route—enhancing safety and awareness on Uganda’s roads.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content Section -->
+    <div class="content">
+      <div class="content-table flex-column">
+
+        <!-- Author Info -->
+        <div class="flex-row">
+          <div class="flex-item flex-column">
+            <h2 class="add-top-margin-small">🌟 Meet the Innovators</h2>
+            <img class="image" src="img/dummay-img.png">
+          </div>
+          <div class="flex-item flex-column">
+            <p class="text text-large">
+              <strong>Suubi Baker Kane</strong> – Software and Embedded systems Engineer<br>
+              <strong>Mugole Joel</strong> – Mobile app developer and Embedded systems Engineer<br>
+              <strong>Nalubega Shadia</strong> – Mobile app developer and UX Expert<br>
+              <strong>Nansswa Patricia</strong> – IoT Expert and software engineer<br>
+              <strong>Nakitto Rosemary</strong> – Iot Expert and Software Engineer<br>
+              <br>
+              <a target="_blank" href="#">Computer Science Department Team</a><br>
+              <a target="_blank" href="#">Makerere University</a><br>
+              Kampala, Uganda
+            </p>
+          </div>
+        </div>
+
+        <!-- Introduction & TOC -->
+        <!-- <div class="flex-row">
+          <div class="flex-item flex-column">
+            <p class="text add-top-margin">
+              Our system uses an ESP32 microcontroller paired with an MPU6050 accelerometer and GPS module to detect pothole patterns based on Z-axis acceleration spikes. WiFiManager enables dynamic Wi-Fi setup, and ThingSpeak acts as a data hub. Our mobile app syncs this data to show drivers real-time hazard markers along their routes.
+            </p>
+            <h3>Table of Contents</h3>
+            <ul>
+              <li><a href="#system-overview">System Overview</a></li>
+              <li><a href="#mobile-integration">Mobile App Integration</a></li>
+              <li><a href="#testing-results">Testing Results</a></li>
+              <li><a href="#community-impact">Community Impact</a></li>
+            </ul>
+          </div>
+        </div> -->
+
+        <!-- System Overview -->
+        <div class="flex-row">
+          <div class="flex-item flex-column">
+            <h2 id="system-overview">🔧 System Overview</h2>
+            <hr>
+            <p class="text">
+              Our <strong>Real-Time Road Condition Mapper</strong> is composed of a device that samples acceleration using MPU6050 and detects potholes through sudden Z-axis spikes. Location data is gathered via GPS, and WiFiManager allows flexible network provisioning without hardcoded credentials. Detected events are uploaded to a cloud based database with geolocation metadata. A mobile app then pulls this data for visualization.
+            </p>
+          </div>
+        </div>
+
+        <!-- Mobile App Integration -->
+        <div class="flex-row-space-between">
+          <div class="flex-item flex-column">
+            <h2 id="mobile-integration">📱 Mobile App Integration</h2>
+            <hr>
+            <p class="text">
+              Our mobile app displays pothole locations on a map interface, using real-time data uploaded on the cloud and route tracking. This allows drivers to anticipate hazards and choose safer paths. It can also notify users of new pothole reports based on proximity and movement direction.
+            </p>
+            <div class="control-group">
+              <a href="#" target="_blank" class="custom-image-button">
+                <img src="img/app-store-badge.png" width="150">
+              </a>
+              <a href="#" target="_blank" class="custom-image-button">
+                <img src="img/google-play-badge.png" width="150">
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testing Results -->
+        <!-- <div class="flex-row">
+          <div class="flex-item flex-column">
+            <h2 id="testing-results">🧪 Field Testing</h2>
+            <hr>
+            <p class="text">
+              We conducted early tests using a toy car equipped with our device. AccelerationZ values between 14,000–16,000 identified soft potholes, while spikes above 16,000 signaled harder impacts. The GPS remained consistent throughout, and all data was validated via ThingSpeak and plotted on Folium maps.
+            </p>
+          </div>
+        </div>
+
+        <!-- Community Impact -->
+        <!-- <div class="flex-row">
+          <div class="flex-item flex-column">
+            <h2 id="community-impact">🌍 Community Impact</h2>
+            <hr>
+            <p class="text">
+              Our solution empowers drivers with knowledge and promotes safer travel decisions. It can benefit boda boda riders, logistics drivers, and even inform local government on road maintenance priorities—especially in areas affected by poor infrastructure across Uganda.
+            </p>
+          </div>
+        </div> --> -->
+
+      </div>
+    </div>
+
+    <div class="footer-container"></div>
+  </div>
+</body>
+
+</html>
