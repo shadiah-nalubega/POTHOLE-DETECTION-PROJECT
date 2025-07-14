@@ -6,6 +6,7 @@
 #include <WiFi.h>
 #include <HTTPClient.h>
 
+
 // === Sensor Setup ===
 MPU6050 mpu;
 TinyGPSPlus gps;
