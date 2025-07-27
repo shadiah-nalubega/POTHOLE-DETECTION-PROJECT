@@ -1,0 +1,90 @@
+{
+  "project_info": {
+    "project_number": "738847169464",
+    "project_id": "pothole-detection-abe46",
+    "storage_bucket": "pothole-detection-abe46.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:738847169464:android:1c4ba4db698112a3de4d4d",
+        "android_client_info": {
+          "package_name": "com.example.pothole"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "738847169464-2sob88knl91baehp3ufs5blmnjaor09q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4-6wZCHdDweYmJajdu7wa5aIAnka9cBI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "738847169464-2sob88knl91baehp3ufs5blmnjaor09q.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "738847169464-33p599qk7e674o4vchn98ju27hq23bmh.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.pothole"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:738847169464:android:94e61ba4c15f60dcde4d4d",
+        "android_client_info": {
+          "package_name": "com.example.pothole1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "738847169464-tm2e5e8blumaakpsch7jgr5klau09do6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pothole1",
+            "certificate_hash": "8531680d41e2b5f3ce79fb01453ee3d8c76d322e"
+          }
+        },
+        {
+          "client_id": "738847169464-2sob88knl91baehp3ufs5blmnjaor09q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4-6wZCHdDweYmJajdu7wa5aIAnka9cBI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "738847169464-2sob88knl91baehp3ufs5blmnjaor09q.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "738847169464-33p599qk7e674o4vchn98ju27hq23bmh.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.pothole"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
