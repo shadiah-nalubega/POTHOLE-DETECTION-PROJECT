@@ -42,6 +42,7 @@ String urlEncode(const String &str) {
     }
   }
   return encoded;
+  return encoded;
 }
 
 // === Shape Detection Logic ===
