@@ -1,75 +1,135 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+  <head>
+    <title>Real-Time Road Condition Mapper</title>
+    <meta
+      charset="utf-8"
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <link
+      href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+      media="screen"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="css/frame.css"
+      media="screen"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="css/controls.css"
+      media="screen"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="css/custom.css"
+      media="screen"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:400,700"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/footer.js"></script>
+    <style>
+      .menu-index {
+        color: rgb(255, 255, 255) !important;
+        opacity: 1 !important;
+        font-weight: 700 !important;
+      }
+    </style>
+  </head>
 
-<head>
-  <title>Real-Time Road Condition Mapper</title>
-  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href="css/frame.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href="css/controls.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href="css/custom.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet'>
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet'>
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="js/menu.js"></script>
-  <script src="js/footer.js"></script>
-  <style>
-    .menu-index {
-      color: rgb(255, 255, 255) !important;
-      opacity: 1 !important;
-      font-weight: 700 !important;
-    }
-  </style>
-</head>
-
-<body>
-  <div class="menu-container"></div>
-  <div class="content-container">
-
-    <!-- Banner Section -->
-    <div class="banner" style="background: url('img/the_pothole_road.png') no-repeat center; background-size: cover; height: 300px;"></div>
-    <div class="banner">
-      <div class="banner-table flex-column">
-        <div class="flex-row">
-          <div class="flex-item flex-column">
-            <h2 class="add-top-margin-small">Real-Time Road Condition Mapper</h2>
-            <p class="text">
-              An IoT-powered embedded system designed to detect potholes using acceleration data and GPS positioning throught a device that is mounted on Cars and Motorcycles. 
-              Logged events are uploaded to a cloud based database and visualized through a mobile app that alerts drivers to road hazards along their route—enhancing safety and awareness on Uganda’s roads.
-            </p>
+  <body>
+    <div class="menu-container"></div>
+    <div class="content-container">
+      <!-- Banner Section -->
+      <div
+        class="banner"
+        style="
+          background: url('img/the_pothole_road.png') no-repeat center;
+          background-size: cover;
+          height: 300px;
+        "
+      ></div>
+      <div class="banner">
+        <div class="banner-table flex-column">
+          <div class="flex-row">
+            <div class="flex-item flex-column">
+              <h2 class="add-top-margin-small">
+                Real-Time Road Condition Mapper
+              </h2>
+              <p class="text">
+                An IoT-powered embedded system designed to detect potholes using
+                acceleration data and GPS positioning throught a device that is
+                mounted on Cars and Motorcycles. Logged events are uploaded to a
+                cloud based database and visualized through a mobile app that
+                alerts drivers to road hazards along their route—enhancing
+                safety and awareness on Uganda’s roads.
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Main Content Section -->
-    <div class="content">
-      <div class="content-table flex-column">
-
-        <!-- Author Info -->
-        <div class="flex-row">
-          <div class="flex-item flex-column">
-            <h2 class="add-top-margin-small">🌟 Meet the Innovators</h2>
-            <img class="image" src="img/dummay-img.png">
+      <!-- Main Content Section -->
+      <div class="content">
+        <div class="content-table flex-column">
+          <!-- Author Info -->
+          <div class="flex-row">
+            <div class="flex-item flex-column">
+              <h2 class="add-top-margin-small">🌟 Meet the Innovators</h2>
+              <img class="image" src="./img/group35.jpg" />
+            </div>
+            <div class="flex-item flex-column">
+              <p class="text text-large">
+                <strong>Suubi Baker Kane</strong> – Software and Embedded
+                systems Engineer<br />
+                <strong>Mugole Joel</strong> – Mobile app developer and Embedded
+                systems Engineer<br />
+                <strong>Nalubega Shadia</strong> – Mobile app developer and IoT
+                Expert<br />
+                <strong>Nansswa Patricia</strong> – IoT Expert and software
+                engineer<br />
+                <strong>Nakitto Rosemary</strong> – Iot Expert and Software
+                Engineer<br />
+                <br />
+                <a target="_blank" href="#">Computer Science Department Team</a
+                ><br />
+                <a target="_blank" href="#">Makerere University</a><br />
+                Kampala, Uganda
+              </p>
+            </div>
           </div>
-          <div class="flex-item flex-column">
-            <p class="text text-large">
-              <strong>Suubi Baker Kane</strong> – Software and Embedded systems Engineer<br>
-              <strong>Mugole Joel</strong> – Mobile app developer and Embedded systems Engineer<br>
-              <strong>Nalubega Shadia</strong> – Mobile app developer and UX Expert<br>
-              <strong>Nansswa Patricia</strong> – IoT Expert and software engineer<br>
-              <strong>Nakitto Rosemary</strong> – Iot Expert and Software Engineer<br>
-              <br>
-              <a target="_blank" href="#">Computer Science Department Team</a><br>
-              <a target="_blank" href="#">Makerere University</a><br>
-              Kampala, Uganda
-            </p>
-          </div>
-        </div>
+           <h3>Table of Contents</h3>
+            <ul>
+              <li><a href="#system-overview">System Overview</a></li>
+              <li><a href="#functional-requirements">Functional Requirements</a></li>
+              <li><a href="#hardware-components">Hardware Components</a></li>
+              <li><a href="#software-components">Software Components</a></li>
+              <li><a href="#data-flow">Data Flow</a></li>
+              <li><a href="#limitations">Limitations and Next Steps</a></li>
+              <li><a href="#resources">Project Resources</a></li>
+              <li><a href="#gallery">Gallery</a></li>
+            </ul>
 
-        <!-- Introduction & TOC -->
-        <!-- <div class="flex-row">
+          <!-- Introduction & TOC -->
+          <!-- <div class="flex-row">
           <div class="flex-item flex-column">
             <p class="text add-top-margin">
               Our system uses an ESP32 microcontroller paired with an MPU6050 accelerometer and GPS module to detect pothole patterns based on Z-axis acceleration spikes. WiFiManager enables dynamic Wi-Fi setup, and ThingSpeak acts as a data hub. Our mobile app syncs this data to show drivers real-time hazard markers along their routes.
@@ -84,38 +144,232 @@
           </div>
         </div> -->
 
-        <!-- System Overview -->
+          <!-- System Overview -->
+          <div class="flex-row">
+            <div class="flex-item flex-column">
+              <h1 id="system-overview">🔧 System Overview</h1>
+
+              <h4 id="system-overview">Embedded Detection Unit</h4>
+              <hr />
+              <p class="text">
+                Our <strong>Real-Time Road Condition Mapper</strong> is composed
+                of a device that samples acceleration using MPU6050 and detects
+                potholes through sudden Z-axis spikes. Location data is gathered
+                via GPS, and WiFiManager allows flexible network provisioning
+                without hardcoded credentials. Detected events are uploaded to a
+                cloud based database with geolocation metadata. A mobile app
+                then pulls this data for visualization.
+              </p>
+            </div>
+          </div>
+          <div class="flex-row">
+            <div class="flex-item flex-column">
+              <h4 id="system-overview">Cloud Data Management Layer</h4>
+              <hr />
+              <p class="text">
+                ThingSpeak stores pothole data (id, latitude, longitude,
+                timestamp, status) with MATLAB Analysis scripts for automated
+                cleanup, while Firebase handles user authentication.
+              </p>
+            </div>
+          </div>
+
+          <!-- Mobile App Integration -->
+          <div class="flex-row-space-between">
+            <div class="flex-item flex-column">
+              <h4 id="mobile-integration">📱 Mobile App Integration</h4>
+              <hr />
+              <p class="text">
+                Our mobile app displays pothole locations on a map interface,
+                using real-time data uploaded on the cloud and route tracking.
+                This allows drivers to anticipate hazards and choose safer
+                paths. It can also notify users of new pothole reports based on
+                proximity and movement direction.
+              </p>
+              <div class="control-group">
+                <a href="#" target="_blank" class="custom-image-button">
+                  <img src="img/app-store-badge.png" width="150" />
+                </a>
+                <a href="#" target="_blank" class="custom-image-button">
+                  <img src="img/google-play-badge.png" width="150" />
+                </a>
+              </div>
+            </div>
+          </div>
+          <!--Start Functional Requirements-->
         <div class="flex-row">
           <div class="flex-item flex-column">
-            <h2 id="system-overview">🔧 System Overview</h2>
+            <h2 id="functional-requirements">Functional Requirements</h2>
             <hr>
             <p class="text">
-              Our <strong>Real-Time Road Condition Mapper</strong> is composed of a device that samples acceleration using MPU6050 and detects potholes through sudden Z-axis spikes. Location data is gathered via GPS, and WiFiManager allows flexible network provisioning without hardcoded credentials. Detected events are uploaded to a cloud based database with geolocation metadata. A mobile app then pulls this data for visualization.
+              The system supports the following functionalities:
+              <ul>
+                <li><b>Pothole Detection</b>: The ESP32 processes MPU6050 data to identify potholes through acceleration spikes.</li>
+                <li><b>Location Tracking</b>: The NEO-6M GPS module captures latitude, longitude, and timestamp for each pothole.</li>
+                <li><b>Data Upload</b>: Pothole data is uploaded to ThingSpeak in JSON format over Wi-Fi.</li>
+                <li><b>Map Visualization</b>: The Flutter app displays pothole locations as markers on Google Maps.</li>
+                <li><b>Route Planning</b>: Users can input destinations and view routes with pothole counts, with the system suggesting the safest route.</li>
+                <li><b>Data Management</b>: ThingSpeak stores structured data, with automated cleanup of records older than 30 days.</li>
+              </ul>
             </p>
           </div>
         </div>
-
-        <!-- Mobile App Integration -->
-        <div class="flex-row-space-between">
+        <!--End Functional Requirements-->
+        <!-------------------------------------------------------------------------------------------->
+        <!--Start Hardware Components-->
+        <div class="flex-row">
           <div class="flex-item flex-column">
-            <h2 id="mobile-integration">📱 Mobile App Integration</h2>
+            <h2 id="hardware-components">Hardware Components</h2>
             <hr>
             <p class="text">
-              Our mobile app displays pothole locations on a map interface, using real-time data uploaded on the cloud and route tracking. This allows drivers to anticipate hazards and choose safer paths. It can also notify users of new pothole reports based on proximity and movement direction.
+              The embedded unit includes:
+              <ul>
+                <li><b>ESP32</b>: A microcontroller with built-in Wi-Fi, interfacing with MPU6050 via I2C and GPS via UART, uploading data to ThingSpeak via HTTPS.</li>
+                <li><b>MPU6050</b>: A 6-axis accelerometer/gyroscope detecting vertical acceleration spikes for pothole identification.</li>
+                <li><b>NEO-6M GPS Module</b>: Provides latitude, longitude, and timestamp for pothole locations.</li>
+              </ul>
             </p>
-            <div class="control-group">
-              <a href="#" target="_blank" class="custom-image-button">
-                <img src="img/app-store-badge.png" width="150">
-              </a>
-              <a href="#" target="_blank" class="custom-image-button">
-                <img src="img/google-play-badge.png" width="150">
-              </a>
+            <div class="flex-row-space-between">
+              <div class="gallery add-top-margin-small add-bottom-margin-small" id="gallery">
+          <a href="javascript:void(0)" class="flex-column"><img src="./img/esp32.png">
+            <div>ESP32 Microcontroller</div>
+          </a>
+          <a href="javascript:void(0)" class="flex-column"><img src="./img/mpu6050.png">
+            <div>MPU6050 Accelerometer</div>
+          </a>
+          <a href="javascript:void(0)" class="flex-column"><img src="./img/gps_module.png">
+            <div>NEO-6M GPS Module</div>
+          </a>
+
+        </div>
             </div>
           </div>
         </div>
+        <!--End Hardware Components-->
+        <!-------------------------------------------------------------------------------------------->
+        <!--Start Software Components-->
+        <div class="flex-row">
+          <div class="flex-item flex-column">
+            <h2 id="software-components">Software Components</h2>
+            <hr>
+            <p class="text">
+              The software stack includes:
+              <ul>
+                <li><b>ThingSpeak</b>: Stores pothole data and uses MATLAB Analysis scripts for automated cleanup of records older than 30 days.</li>
+                <li><b>Firebase Authentication</b>: Secures user access to the Flutter app for pothole reporting and updates.</li>
+                <li><b>Flutter Mobile App</b>: Retrieves data from ThingSpeak via REST APIs, displays potholes on Google Maps, and supports route planning and user settings.</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+        <!--End Software Components-->
+        <!-------------------------------------------------------------------------------------------->
+        <!--Start Data Flow-->
+        <div class="flex-row">
+          <div class="flex-item flex-column">
+            <h2 id="data-flow">Data Flow</h2>
+            <hr>
+            <p class="text">
+              The data flow is as follows:
+              <ul>
+                <li>The MPU6050 sends acceleration data and the NEO-6M GPS module sends location data to the ESP32, which formats it as JSON for upload to ThingSpeak.</li>
+                <li>ThingSpeak stores the data and provides it to the Flutter app via REST APIs.</li>
+                <li>The Flutter app authenticates users via Firebase, retrieves map data from Google Maps API, and displays pothole locations.</li>
+                <li>Road maintenance authorities query ThingSpeak for aggregated data, while system administrators manage ThingSpeak and Firebase configurations.</li>
+              </ul>
+            </p>
+            <img class="image center max-width-400 add-top-margin-small" src="./img/dataflow.png">
+            <p class="text text-center graph-title">Data Flow Diagram</p>
+          </div>
+        </div>
+        <!--End Data Flow-->
+        <!-------------------------------------------------------------------------------------------->
+        <!--Start Limitations-->
+        <div class="flex-row">
+          <div class="flex-item flex-column">
+            <h2 id="limitations">Limitations and Next Steps</h2>
+            <hr>
+            <p class="text">
+              The system faces several limitations:
+              <ul>
+                <li><b>Hardware Limitations</b>: The ESP32's limited processing power restricts complex computations. <b>Solution</b>: Upgrade to ESP32-S3 or offload computations to ThingSpeak.</li>
+                <li><b>Wi-Fi Dependence</b>: Unreliable in rural areas, risking data loss. <b>Solution</b>: Add offline buffering and a cellular module (e.g., SIM800L).</li>
+                <li><b>GPS Accuracy</b>: The NEO-6M's 10-meter accuracy may be insufficient in urban areas. <b>Solution</b>: Use a high-precision GPS module like u-blox NEO-7M with RTK.</li>
+                <li><b>Flutter Compatibility</b>: Limited to Android 8.0+ and iOS 12.0+. <b>Solution</b>: Optimize for older OS versions and offer a web interface.</li>
+                <li><b>User Distraction</b>: App interactions may distract drivers. <b>Solution</b>: Implement voice-activated controls and a simplified UI.</li>
+              </ul>
+            </p>
+            <p class="text">
+              <b>Next Steps</b>:
+              <ul>
+                <li>Implement pothole reporting and debounce features in the Flutter app.</li>
+                <li>Conduct field tests in urban, rural, and highway environments.</li>
+                <li>Add offline data buffering to the ESP32 for unreliable network areas.</li>
+                <li>Pilot the system with road maintenance authorities and fleet operators.</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+        <!--End Limitations-->
+        <!-------------------------------------------------------------------------------------------->
+        <!--Start Resources-->
+        <div class="flex-row">
+          <div class="flex-item flex-column">
+            <h2 id="resources">Project Resources</h2>
+            <hr>
+            <p class="text">
+              Explore the project further:
+              <ul>
+                <li><a href="https://github.com/shadiah-nalubega/POTHOLE-DETECTION-PROJECT.git">GitHub Repository</a></li>
+               
+              </ul>
+            </p>
+            <div class="control-group">
+              <a href="https://github.com/shadiah-nalubega/POTHOLE-DETECTION-PROJECT.git" target="_blank" class="custom-button">View GitHub</a>
+              
+            </div>
+          </div>
+        </div>
+        <!--End Resources-->
+        <!-------------------------------------------------------------------------------------------->
+        <!--Start Gallery-->
+        <div class="flex-row">
+          <div class="flex-item flex-column">
+            <h2 id="gallery">Gallery</h2>
+            <hr>
+            <p class="text">
+              Screenshots and visualizations of the Pothole Detection and Reporting System.
+            </p>
+          </div>
+        </div>
+        <div class="gallery add-top-margin-small add-bottom-margin-small">
+          <a href="javascript:void(0)" class="flex-column"><img src="./img/map_potholes.jpg">
+            <div>Map Visualization</div>
+          </a>
+          <a href="javascript:void(0)" class="flex-column"><img src="./img/bestroute.jpg">
+            <div>Route Planning</div>
+          </a>
+          <a href="javascript:void(0)" class="flex-column"><img src="./img/reporthole.jpg">
+            <div>Pothole Reporting</div>
+          </a>
+          <a href="javascript:void(0)" class="flex-column"><img src="./img/settings.jpg">
+            <div>Settings Screen</div>
+          </a>
+        </div>
+        <!--End Gallery-->
+        <!-------------------------------------------------------------------------------------------->
+        <!--Start Credits-->
+        <div class="flex-row">
+          <div class="flex-item flex-item-stretch flex-column">
+            <p class="text text-small text-italic add-top-margin-large">
+              Credits: <span class="highlight-text">Group 35</span>: Mugole Joel, Suubi Baker Kane, Nalubega Shadiah, Nakitto Rosemary, Nanswa Patricia / <span class="highlight-text">Mentor</span>: Dr. Asiimwe Paddy
+            </p>
+          </div>
+        </div>
+        <!--End Credits-->
 
-        <!-- Testing Results -->
-        <!-- <div class="flex-row">
+          <!-- Testing Results -->
+          <!-- <div class="flex-row">
           <div class="flex-item flex-column">
             <h2 id="testing-results">🧪 Field Testing</h2>
             <hr>
@@ -126,7 +380,7 @@
         </div>
 
         <!-- Community Impact -->
-        <!-- <div class="flex-row">
+          <!-- <div class="flex-row">
           <div class="flex-item flex-column">
             <h2 id="community-impact">🌍 Community Impact</h2>
             <hr>
@@ -134,13 +388,12 @@
               Our solution empowers drivers with knowledge and promotes safer travel decisions. It can benefit boda boda riders, logistics drivers, and even inform local government on road maintenance priorities—especially in areas affected by poor infrastructure across Uganda.
             </p>
           </div>
-        </div> --> -->
-
+        </div> -->
+          -->
+        </div>
       </div>
+
+      <div class="footer-container"></div>
     </div>
-
-    <div class="footer-container"></div>
-  </div>
-</body>
-
+  </body>
 </html>

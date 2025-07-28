@@ -24,7 +24,7 @@
 }
 
 .custom-button {
-  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
   padding: 10px 20px;
   text-align: center;
   font-size: 14px;
@@ -109,7 +109,7 @@
 }
 
 .custom-button-flat {
-  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
   text-align: center;
   font-size: 16px;
   line-height: 16px;
@@ -178,7 +178,7 @@
 
 input.custom-textbox,
 textarea.custom-textbox {
-  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+  font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
   box-sizing: border-box;
   padding: 5px 10px;
   background: rgb(255, 255, 255);
@@ -440,4 +440,15 @@ textarea[readonly].custom-textbox {
     -moz-box-shadow: 0 0 0 0 rgba(23, 162, 184, 0);
     box-shadow: 0 0 0 0 rgba(23, 162, 184, 0);
   }
+}
+.icon-row {
+  display: flex;
+  justify-content: center; /* centers the images horizontally */
+  gap: 20px; /* space between images */
+  flex-wrap: wrap; /* allows wrapping on smaller screens */
+}
+
+.flat-icon {
+  width: 500px;
+  height: auto;
 }
