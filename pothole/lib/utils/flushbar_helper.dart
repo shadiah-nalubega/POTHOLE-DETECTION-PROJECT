@@ -11,7 +11,7 @@ void showFlushBar(
 }) {
   Flushbar(
     margin: const EdgeInsets.all(12),
-    borderRadius: BorderRadius.circular(8),
+    borderRadius: BorderRadius.circular(8),// changes the borderradius
     backgroundColor: color ?? Colors.black87,
     duration: const Duration(seconds: 3),
     icon: Icon(icon, color: Colors.white),
