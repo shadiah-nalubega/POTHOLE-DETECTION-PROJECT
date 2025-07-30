@@ -112,7 +112,7 @@ class _StatsPageState extends State<StatsPage> {
   Future<void> _fetchData() async {
     await Future.wait([_fetchLineChartData(), _fetchReportedPotholes()]);
   }
-
+//this retrieves data from thingspeak 
   Future<void> _fetchLineChartData() async {
     const apiKey = 'I7I05AI7PDG2GY6T';
     final url = Uri.parse(
