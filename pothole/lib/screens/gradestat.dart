@@ -370,7 +370,7 @@ class PotholeLineChart extends StatelessWidget {
         (data.isNotEmpty ? (data.reduce((a, b) => a > b ? a : b) + 5) : 5)
             .toDouble();
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
-
+//this is the widget for line graph
     return LineChart(
       LineChartData(
         backgroundColor: Colors.transparent,
