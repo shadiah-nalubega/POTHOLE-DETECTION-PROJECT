@@ -80,7 +80,7 @@ class GetStarted extends StatelessWidget {
                   width: size.width * 0.7,
                   height: 55,
                   child: ElevatedButton(
-                    onPressed: () => Navigator.pushNamed(context, "/login"),
+                    onPressed: () => Navigator.pushNamed(context, "/login"),// this goes to login page
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.amber,
                       foregroundColor: Colors.black87,
