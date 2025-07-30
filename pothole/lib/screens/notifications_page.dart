@@ -7,6 +7,7 @@ class NotificationsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Reference to Firestore notifications collection, sorted by timestamp
     final notificationsRef = FirebaseFirestore.instance
         .collection('notifications')
         .orderBy('timestamp', descending: true);
