@@ -22,6 +22,7 @@ int zIndex = 0;
 const char* thingspeakServer = "https://api.thingspeak.com/update";
 String apiKey = "UOPAYZP2P3Q5BDD0";
 
+
 // === URL Encode Function ===
 String urlEncode(const String &str) {
   String encoded = "";
