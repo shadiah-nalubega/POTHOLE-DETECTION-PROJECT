@@ -47,6 +47,22 @@
   -ms-user-select: none;
   user-select: none;
 }
+#backToTop {
+  display: none;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 99;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  background-color: #444;
+  color: white;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
 
 .custom-button:not(:disabled):hover {
   background-color: #4d4d4d;
