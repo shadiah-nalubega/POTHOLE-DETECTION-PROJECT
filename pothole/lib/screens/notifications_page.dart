@@ -25,6 +25,7 @@ class NotificationsScreen extends StatelessWidget {
               for (final doc in snapshot.docs) {
                 await doc.reference.delete();
               }
+              // Show confirmation snackbar
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(content: Text("All notifications cleared")),
               );
