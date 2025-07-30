@@ -3,6 +3,7 @@ import 'package:another_flushbar/flushbar.dart';
 
 void showFlushBar(
   BuildContext context,
+  //helps to send the notifcations toasts using the flushbar 
   String message, {
   IconData icon = Icons.info,
   Color? color,
