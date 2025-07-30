@@ -226,6 +226,7 @@ class _StatsPageState extends State<StatsPage> {
                   const SizedBox(height: 30),
                   Row(
                     children: [
+                      // this is the text widget for the pothole  
                       Text(
                         'Potholes Reported',
                         style: theme.textTheme.titleLarge,
