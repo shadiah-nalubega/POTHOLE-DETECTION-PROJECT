@@ -10,7 +10,7 @@ class ThemeProvider with ChangeNotifier {
   ThemeProvider() {
     _loadTheme();
   }
-
+// this helps to change to dark or light mode 
   ThemeMode get currentThemeMode =>
       _isDarkMode ? ThemeMode.dark : ThemeMode.light;
 
