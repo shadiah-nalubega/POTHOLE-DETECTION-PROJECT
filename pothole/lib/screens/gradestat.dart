@@ -516,6 +516,7 @@ class _ReportDetailsPageState extends State<ReportDetailsPage>
 
   @override
   Widget build(BuildContext context) {
+    //these are consts for the pothole detections 
     final report = widget.report;
     final imageUrl = report['imageUrl'] ?? '';
     final user = report['userEmail'] ?? 'Unknown User';
