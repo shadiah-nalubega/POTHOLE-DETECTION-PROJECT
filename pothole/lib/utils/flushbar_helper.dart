@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:another_flushbar/flushbar.dart';
 
+// Shows a Flushbar toast with message and icon
 void showFlushBar(
   BuildContext context,
   //helps to send the notifcations toasts using the flushbar 
