@@ -13,6 +13,7 @@ class NotificationsScreen extends StatelessWidget {
         .orderBy('timestamp', descending: true);
 
     return Scaffold(
+      // App bar with title and clear-all-notifications action
       appBar: AppBar(
         title: const Text('Notifications'),
         actions: [
