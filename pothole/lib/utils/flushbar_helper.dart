@@ -16,5 +16,5 @@ void showFlushBar(
     duration: const Duration(seconds: 3),
     icon: Icon(icon, color: Colors.white),
     messageText: Text(message, style: const TextStyle(color: Colors.white)),
-  ).show(context);
+  ).show(context);//this will send notitfication onthe local using the flushbar
 }
