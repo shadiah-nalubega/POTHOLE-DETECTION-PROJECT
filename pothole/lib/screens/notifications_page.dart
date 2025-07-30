@@ -60,7 +60,7 @@ class NotificationsScreen extends StatelessWidget {
               final title = data['title'] as String? ?? 'No Title';
               final body = data['body'] as String? ?? '';
               final timestamp =
-                  data['timestamp'] as Timestamp? ?? Timestamp.now();
+                  data['timestamp'] as Timestamp? ?? Timestamp.now();//timestamp
               final date = DateFormat(
                 'yyyy-MM-dd hh:mm a',
               ).format(timestamp.toDate());
