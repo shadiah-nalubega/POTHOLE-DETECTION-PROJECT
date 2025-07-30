@@ -9,29 +9,9 @@ import 'dart:convert';
 import 'dart:ui' as ui;
 import 'dart:math' as math;
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:pothole/screens/notifications_page.dart';
 import 'package:vibration/vibration.dart';
 import 'package:flutter_tts/flutter_tts.dart';
-
-// Main entry point: initializes Firebase and runs the app
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-  runApp(const MyApp());
-}
-
-// Root widget for the app
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: SearchScreen(),
-    );
-  }
-}
 
 // Main screen for pothole detection and route finding
 class SearchScreen extends StatefulWidget {
@@ -330,17 +310,24 @@ class _SearchScreenState extends State<SearchScreen> {
                 }
                 return m;
               }).toSet(),
+              // If showPotholes is true, display all pothole markers on the map
               if (showPotholes)
+                // For each pothole location, create a marker
                 ...potholeMarkers.map(
                   (p) => Marker(
+                    // Unique marker ID based on latitude and longitude
                     markerId: MarkerId('pothole_${p.latitude}_${p.longitude}'),
+                    // Position of the pothole marker
                     position: p,
+                    // Use custom warning icon if loaded, otherwise use default red marker
                     icon:
                         warningIcon ??
                         BitmapDescriptor.defaultMarkerWithHue(
                           BitmapDescriptor.hueRed,
                         ),
+                    // Info window shows "Pothole" when tapped
                     infoWindow: const InfoWindow(title: "Pothole"),
+                    // When the marker is tapped, call _onMarkerTap with its ID and position
                     onTap: () {
                       _onMarkerTap('pothole_${p.latitude}_${p.longitude}', p);
                     },
