@@ -21,7 +21,7 @@ class NotificationsScreen extends StatelessWidget {
             icon: const Icon(Icons.done_all),
             tooltip: "Mark all as read",
             onPressed: () async {
-              final snapshot = await notificationsRef.get();
+              final snapshot = await notificationsRef.get();// this will show mark as read
               for (final doc in snapshot.docs) {
                 await doc.reference.delete();
               }
