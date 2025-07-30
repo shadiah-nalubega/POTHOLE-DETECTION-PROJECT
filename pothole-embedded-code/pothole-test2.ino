@@ -100,7 +100,7 @@ void setup() {
 
   Serial.println("WiFi connected!");
 }
-
+// === read accelerometer values ===
 void loop() {
   int16_t ax, ay, az;
   mpu.getAcceleration(&ax, &ay, &az);
