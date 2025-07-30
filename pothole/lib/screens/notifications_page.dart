@@ -36,6 +36,7 @@ class NotificationsScreen extends StatelessWidget {
       body: StreamBuilder<QuerySnapshot>(
         stream: notificationsRef.snapshots(),
         builder: (context, snapshot) {
+          // Handle error state
           if (snapshot.hasError) {
             return const Center(child: Text("Something went wrong."));
           }
@@ -49,7 +50,7 @@ class NotificationsScreen extends StatelessWidget {
           if (docs.isEmpty) {
             return const Center(child: Text("🎉 No new notifications"));
           }
-
+        // Build list of notification cards
           return ListView.builder(
             itemCount: docs.length,
             itemBuilder: (context, index) {
