@@ -16,7 +16,7 @@ class EditProfilePage extends StatefulWidget {
 
 class _EditProfilePageState extends State<EditProfilePage> {
   final _formKey = GlobalKey<FormState>();
-  final _nameController = TextEditingController();
+  final _nameController = TextEditingController();//name controlllers for text 
   final _phoneController = TextEditingController();
   final ImagePicker _picker = ImagePicker();
 
