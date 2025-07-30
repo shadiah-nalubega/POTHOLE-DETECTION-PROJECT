@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-
+// Displays a screen with a list of notifications from Firestore
 class NotificationsScreen extends StatelessWidget {
   const NotificationsScreen({super.key});
 
