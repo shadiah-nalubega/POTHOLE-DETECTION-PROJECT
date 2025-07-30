@@ -120,6 +120,7 @@ class _SignPageState extends State<SignPage>
       decoration: _inputDecoration(icon, hintText),
     );
   }
+  // this sends the info 
 
   InputDecoration _inputDecoration(IconData icon, String hint) {
     return InputDecoration(
