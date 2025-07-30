@@ -74,7 +74,7 @@ void sendToThingSpeak(float lat, float lon, int az, float speed, String label, S
     http.end();
   }
 }
-
+// Sets up Serial, I2C (pins 21, 22), and GPS serial for IoT device
 void setup() {
   Serial.begin(9600);
   delay(1000);
