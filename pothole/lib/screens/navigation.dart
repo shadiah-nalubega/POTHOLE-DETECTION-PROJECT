@@ -37,7 +37,7 @@ class _NavigationState extends State<Navigation> {
         color: isDark ? Colors.grey[850]! : Colors.white,
         backgroundColor: Colors.transparent,
         items: items,
-        index: _selectedIndex,
+        index: _selectedIndex,// this selects the current page
         onTap: (index) {
           setState(() {
             _selectedIndex = index;
