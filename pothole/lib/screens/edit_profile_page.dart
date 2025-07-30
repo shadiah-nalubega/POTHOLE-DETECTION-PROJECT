@@ -18,7 +18,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
   final _formKey = GlobalKey<FormState>();
   final _nameController = TextEditingController();//name controlllers for text 
   final _phoneController = TextEditingController();// text controllers for phonenumber
-  final ImagePicker _picker = ImagePicker();
+  final ImagePicker _picker = ImagePicker();// this pickes the image
 
   bool _isLoading = false;
   File? _newImage;
