@@ -479,7 +479,7 @@ class PotholeLineChart extends StatelessWidget {
     );
   }
 }
-
+//this is the reportpothole details its good 
 class ReportDetailsPage extends StatefulWidget {
   final Map<String, dynamic> report;
 
