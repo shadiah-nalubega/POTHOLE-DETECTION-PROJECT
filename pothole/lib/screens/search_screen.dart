@@ -14,12 +14,14 @@ import 'package:pothole/screens/notifications_page.dart';
 import 'package:vibration/vibration.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 
+// Main entry point: initializes Firebase and runs the app
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
+// Root widget for the app
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
@@ -31,6 +33,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
+// Main screen for pothole detection and route finding
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
 
@@ -39,18 +42,21 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
-  GoogleMapController? mapController;
-  Map<String, Marker> markers = {};
-  final TextEditingController searchController = TextEditingController();
+  GoogleMapController? mapController; // Controls Google Map
+  Map<String, Marker> markers = {}; // Stores map markers
+  final TextEditingController searchController =
+      TextEditingController(); // For search input
 
-  // Potholes
+  // List of pothole marker locations
   List<LatLng> potholeMarkers = [];
-  bool showPotholes = true;
-  BitmapDescriptor? warningIcon;
+  bool showPotholes = true; // Toggle pothole visibility
+  BitmapDescriptor? warningIcon; // Custom icon for pothole markers
 
+  // ThingSpeak API details for fetching pothole data
   final String thingSpeakChannelId = "3003013";
   final String thingSpeakReadApiKey = "I7I05AI7PDG2GY6T";
 
+  // Predefined gate for route selection
   final Map<String, LatLng> gateLocations = {
     'Main Gate': LatLng(0.3293245722418652, 32.57097846586401),
     'Western Gate': LatLng(0.33489802889405, 32.56393185237201),
@@ -58,52 +64,53 @@ class _SearchScreenState extends State<SearchScreen> {
     'CoCIS': LatLng(0.3314728429581685, 32.570646523535906),
   };
 
-  final Set<Polyline> _polylines = {};
-  String routeDistance = '';
-  String routeDuration = '';
+  final Set<Polyline> _polylines = {}; // Stores route polylines
+  String routeDistance = ''; // Route distance info
+  String routeDuration = ''; // Route duration info
 
-  late final Stream<int> unreadCountStream;
+  late final Stream<int> unreadCountStream; // Stream for unread notifications
 
-  String? selectedMarkerId;
+  String? selectedMarkerId; // Currently selected marker
 
-  LatLng? currentLocation;
+  LatLng? currentLocation; // User's current location
 
   // For live location updates and pothole alerts
   StreamSubscription<Position>? _positionStream;
-  final Set<String> _alertedPotholes = {};
+  final Set<String> _alertedPotholes = {}; // Tracks potholes already alerted
 
-  final FlutterTts flutterTts = FlutterTts();
-
-
+  final FlutterTts flutterTts = FlutterTts(); // Text-to-speech for alerts
 
   @override
   void initState() {
     super.initState();
+    // Initialize TTS settings
     flutterTts.setLanguage("en-US");
     flutterTts.setPitch(1.0);
     flutterTts.setSpeechRate(0.5);
-    _loadWarningIcon();
-    _fetchThingSpeakPotholes();
+    _loadWarningIcon(); // Load custom warning icon
+    _fetchThingSpeakPotholes(); // Fetch pothole data
 
+    // Listen for unread notifications
     unreadCountStream = FirebaseFirestore.instance
         .collection('notifications')
         .where('read', isEqualTo: false)
         .snapshots()
         .map((snapshot) => snapshot.docs.length);
 
+    // Get current location and start updates
     _determinePosition().then((pos) {
       if (pos != null) {
         setState(() {
           currentLocation = pos;
         });
-        // Move map camera if map is ready
+        // Move map camera to current location
         if (mapController != null) {
           mapController!.animateCamera(CameraUpdate.newLatLngZoom(pos, 14));
           addMarker('Current Location', pos);
         }
         _startLocationUpdates();
       } else {
-        // Fallback to Kampala
+        // Fallback to Kampala if location unavailable
         currentLocation = const LatLng(0.3152, 32.5816);
         _startLocationUpdates();
       }
@@ -112,10 +119,11 @@ class _SearchScreenState extends State<SearchScreen> {
 
   @override
   void dispose() {
-    _positionStream?.cancel();
+    _positionStream?.cancel(); // Stop location updates
     super.dispose();
   }
 
+  // Start live location updates
   void _startLocationUpdates() {
     const locationSettings = LocationSettings(
       accuracy: LocationAccuracy.high,
@@ -131,11 +139,12 @@ class _SearchScreenState extends State<SearchScreen> {
               // Update current location marker
               addMarker('Current Location', newLoc);
             });
-            _checkProximityToPotholes(newLoc);
+            _checkProximityToPotholes(newLoc); // Alert if near pothole
           },
         );
   }
 
+  // Check if user is near any pothole and alert
   void _checkProximityToPotholes(LatLng userLoc) {
     const double alertThreshold = 20; // meters
 
@@ -156,6 +165,7 @@ class _SearchScreenState extends State<SearchScreen> {
     }
   }
 
+  // Get user's current location
   Future<LatLng?> _determinePosition() async {
     bool serviceEnabled;
     LocationPermission permission;
@@ -186,6 +196,7 @@ class _SearchScreenState extends State<SearchScreen> {
     return LatLng(position.latitude, position.longitude);
   }
 
+  // Load custom warning icon for pothole markers
   Future<void> _loadWarningIcon() async {
     warningIcon = await _bitmapDescriptorFromIconData(
       Icons.warning,
@@ -195,6 +206,7 @@ class _SearchScreenState extends State<SearchScreen> {
     setState(() {});
   }
 
+  // Create BitmapDescriptor from IconData
   Future<BitmapDescriptor> _bitmapDescriptorFromIconData(
     IconData iconData, {
     Color color = Colors.red,
@@ -222,6 +234,7 @@ class _SearchScreenState extends State<SearchScreen> {
     return BitmapDescriptor.fromBytes(bytes!.buffer.asUint8List());
   }
 
+  // Show a toast notification
   void _showToast(String msg) {
     Flushbar(
       message: msg, // ← use the parameter passed in
@@ -240,6 +253,7 @@ class _SearchScreenState extends State<SearchScreen> {
       appBar: AppBar(
         title: const Text("Pothole Route Finder"),
         actions: [
+          // Notification icon with unread count badge
           StreamBuilder<int>(
             stream: unreadCountStream,
             builder: (context, snapshot) {
@@ -290,6 +304,7 @@ class _SearchScreenState extends State<SearchScreen> {
       ),
       body: Stack(
         children: [
+          // Google Map widget
           GoogleMap(
             initialCameraPosition: CameraPosition(
               target: currentLocation ?? const LatLng(0.3152, 32.5816),
@@ -652,7 +667,8 @@ class _SearchScreenState extends State<SearchScreen> {
     int count = 0;
 
     for (final pothole in potholeMarkers) {
-      if (_isPotholeNearRoute(pothole, routePoints, 20)) { // 20 meters threshold
+      if (_isPotholeNearRoute(pothole, routePoints, 20)) {
+        // 20 meters threshold
         count++;
       }
     }
@@ -731,18 +747,14 @@ class _SearchScreenState extends State<SearchScreen> {
     } else if (param > 1) {
       closest = p2;
     } else {
-      closest = [
-        p1[0] + param * dx,
-        p1[1] + param * dy,
-        p1[2] + param * dz,
-      ];
+      closest = [p1[0] + param * dx, p1[1] + param * dy, p1[2] + param * dz];
     }
 
     // Euclidean distance between point and closest point on segment
     final dist = math.sqrt(
       math.pow(p0[0] - closest[0], 2) +
-      math.pow(p0[1] - closest[1], 2) +
-      math.pow(p0[2] - closest[2], 2)
+          math.pow(p0[1] - closest[1], 2) +
+          math.pow(p0[2] - closest[2], 2),
     );
     return dist;
   }
