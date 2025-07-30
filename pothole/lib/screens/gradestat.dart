@@ -553,7 +553,8 @@ class _ReportDetailsPageState extends State<ReportDetailsPage>
           elevation: 1.5,
         ),
         body: FadeTransition(
-          opacity: _fadeAnimation,
+          opacity: _fadeAnimation,//animations for better trabsistion interface
+          
           child: SingleChildScrollView(
             padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 20),
             child: Column(
