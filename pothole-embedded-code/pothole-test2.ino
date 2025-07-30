@@ -5,6 +5,8 @@
 #include <WiFiManager.h>
 #include <WiFi.h>
 #include <HTTPClient.h>
+#incude <HTTPClient.h>
+
 
 
 // === Sensor Setup ===
