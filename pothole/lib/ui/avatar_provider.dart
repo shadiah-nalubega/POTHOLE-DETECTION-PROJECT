@@ -31,7 +31,7 @@ class AvatarProvider with ChangeNotifier {
 
     notifyListeners();
   }
-
+//th is the fetch function for the avatar
   Future<void> fetchAvatar() async {
     final user = FirebaseAuth.instance.currentUser;
     if (user == null) return;
