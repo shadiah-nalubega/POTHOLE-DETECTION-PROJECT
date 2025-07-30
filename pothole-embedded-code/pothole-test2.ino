@@ -111,7 +111,7 @@ void loop() {
   while (GPS_Serial.available()) {
     gps.encode(GPS_Serial.read());
   }
-
+// === log valid coordinates ===
   if (!gps.location.isValid()) {
     Serial.println("Waiting for GPS fix");
     delay(100);
