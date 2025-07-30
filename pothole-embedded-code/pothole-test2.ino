@@ -113,6 +113,18 @@ void loop() {
   while (GPS_Serial.available()) {
     gps.encode(GPS_Serial.read());
   }
+ // void loop() {
+  int16_t ax, ay, az;
+  mpu.getAcceleration(&ax, &ay, &az);
+  z_history[zIndex] = az;
+  zIndex = (zIndex + 1) % SAMPLE_SIZE;
+  Serial.printf("Accel → X: %d | Y: %d | Z: %d\n", ax, ay, az);
+
+  while (GPS_Serial.available()){
+    gps.encode(GPS_Seial.read());
+  }  //
+  
+    
 // === log valid coordinates ===
   if (!gps.location.isValid()) {
     Serial.println("Waiting for GPS fix");
