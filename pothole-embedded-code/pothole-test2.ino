@@ -121,7 +121,8 @@ void loop() {
   float lat = gps.location.lat();
   float lon = gps.location.lng();
   float speed = gps.speed.kmph();
-
+  
+// === Detects potholes, logs location/name, sends to ThingSpeak ===
   if (detectPotholeShape()) {
     Serial.println("Bump/Pothole Detected!");
     Serial.printf("Location: Lat %.6f, Lon %.6f\n", lat, lon);
