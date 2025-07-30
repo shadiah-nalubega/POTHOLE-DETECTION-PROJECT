@@ -29,7 +29,7 @@ class AvatarProvider with ChangeNotifier {
       'avatarUrl': url,
     }, SetOptions(merge: true));
 
-    notifyListeners();
+    notifyListeners();// this  sends notifcations or tosstors 
   }
 //th is the fetch function for the avatar
   Future<void> fetchAvatar() async {
