@@ -62,7 +62,7 @@ void sendToThingSpeak(float lat, float lon, int az, float speed, String label, S
       "&field3=" + String(az) +
       "&field4=" + urlEncode(locationName) +
       "&field5=" + String(speed, 2);
-
+// Sends an HTTP GET request to ThingSpeak and logs the response or error to Serial
     http.begin(url);
     int responseCode = http.GET();
     if (responseCode > 0) {
